@@ -1,4 +1,35 @@
 /* Universal Selectors */
+body {
+    margin: 0;
+    padding: 0;
+    height: 1000px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    background-color: cornsilk;
+}
+
+.child_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10%;
+    width: 30%;
+    background-color:yellowgreen;
+    border-top: 10px solid black;
+    border-bottom: 10px solid black;
+}
+
+.title {
+    font-size: 50px;
+}
+
+/* Question Pages styling */
 .choices {
     list-style: upper-latin
 }

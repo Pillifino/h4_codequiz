@@ -36,24 +36,3 @@ var questionObject5 = {
     answer2: "This is not the answer",
     answer3: "This is the answer",
 }
-
-// Start Button Function
-var startbutton = document.querySelector("#start")
-
-startbutton.addEventListener("click", function(){
-    console.log(JSON.stringify(questionObject,null,4))
-})
-
-//Next Question Function
-var test = document.querySelector(".test");
-
-test.addEventListener("click", function(event){
-    var element = event.target;
-
-    if (element.matches(".page")) {
-        var state = element.dataset.state;
-        if (state === "hidden") {
-            console.log(JSON.stringify(questionObject2,null,4)) //find a way to print the next string everytime an answer is chosen
-        }   
-    }
-})

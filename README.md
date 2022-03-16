@@ -21,7 +21,12 @@ Variables
         var losetimeEl (connect to countdown function) = document.querySelector('#decrement")
         var countEl
 
-Functions 
+
+Functions
+    Tite Page
+    Start Button function
+        - When clicked, link to the first question and start timer
+
     Time Function
         -Use WebAPI: setInterval
         -use if statment for when time gets to 0 that will stop timer and bring up final score
@@ -29,10 +34,6 @@ Functions
     Score Function
         -create increment function with on click
         -to print new score: countEl.textContent = score; 
-
-Tite Page
-    Start Button
-        - When clicked, link to the first question
 
 Questions 1-5 (Create Object with each property being a question with an array of answers)
     Answer Buttons

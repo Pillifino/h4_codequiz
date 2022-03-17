@@ -39,3 +39,4 @@ var choices = document.querySelector(".answer-container"); //answer choices
 var userchoice = []
 var timer;
 var timerCount;
+var score;

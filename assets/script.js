@@ -32,17 +32,17 @@ var questions = [
     }];
 
 //creating query selectors
-var quiz = document.querySelector("quiz-area"); //all quiz content goes here
+var quiz = document.querySelector("quiz-area"); //Used to change quiz content
 var startButton = document.querySelector(".start"); //start the quiz
-var questionContainer = document.querySelector(".question-container"); //where each question object will go 
-var testChoices = document.querySelector(".answer-container"); //answer choices 
-var timerEl = document.querySelector("#timer");
-var timerInterval;
-var timerCount;
+var questionContainer = document.querySelector(".question-container"); //Space For Questions
+var testChoices = document.querySelector(".answer-container"); //Space for answer choices
+var timerEl = document.querySelector("#timer"); //displays time
+var timerInterval; //stores setInterval API inside variable
 var score = 0;
 var scoreCounter = 0;
 var highScore = 0; //local storage
 
+var options = document.querySelector(".options");
 var option1 = document.querySelector("#opt-1")
 var option2 = document.querySelector("#opt-2")
 var option3 = document.querySelector("#opt-3")
@@ -50,14 +50,16 @@ var option4 = document.querySelector("#opt-4")
 var option5 = document.querySelector("#opt-5")
 
 let index = 0; 
-var buttons = document.querySelector(".buttonflex");
-buttons.style.display = "none"; // hide buttons
+
+// Hidden Items
+options.style.display = "none"; // hide buttons
+questionContainer.style.display = "none"; // Hide Questions
 
 //Functions
 // display quiz area
 function displayqa() {
-    questionContainer.textContent = questions[index].questionText
-    testChoices = questions[index].choices 
+    questionContainer.textContent = questions[index].questionText //sets text content to property of specified object based on index
+    testChoices = questions[index].choices //sets text content to property of specified object based on index
     console.log(testChoices)
     option1.textContent = questions[index].choices[0] //displays text of property of choices in object 1
     option2.textContent = questions[index].choices[1] //displays text of property of choices in object 2
@@ -69,19 +71,16 @@ function displayqa() {
 startButton.addEventListener("click", function(){
     startTimer();
     displayqa();
-    buttons.style.display = "block";
-    startButton.style.display = "none";
+    options.style.display = "block";
+    questionContainer.style.display = "block"; // Reveal Questions
+    startButton.style.display = "none"; //Hides Start Button
 })
 
-function finishGame(){
-    timerEl.textContent = "Game Over"
-}
-// Starrt 60 second countdown
 
-//Finish Quiz
+//Start Timer
 function startTimer() {
     // Sets timer
-    var secondsLeft = 5;
+    var secondsLeft = 15;
     timerInterval = setInterval(function() {
       secondsLeft--;
       timerEl.textContent = secondsLeft + " seconds.";
@@ -90,32 +89,40 @@ function startTimer() {
       if (secondsLeft === 0) {
         // Clears interval
         clearInterval(timerInterval);
-        finishGame();
+        finishquiz();
         // setHighscore();
       }
     }, 1000);
   }
+  
 //Check Answers
 function checkanswer() {
-    var submission = this.textContent;
+    var submission = this.textContent; 
     var correctAnswer = questions[index].answer
-    console.log(this.textContent + " Button Clicked")
-    console.log(correctAnswer + " Correct Answer")
+    console.log("Button Clicked")
+    console.log("Correct")
     if (submission === correctAnswer){
-        score += 1
+        score += 1 //Add a point to score
         console.log(score)
-    } else {
-        // Wrong
+    }  else {
+        
     }
 
     index = index + 1
 
     if (index === questions.length) {
         clearInterval(timerInterval);
-        finishGame();
+        finishquiz();
     } else {
         displayqa();
     }
+}
+
+//Finish Quiz
+function finishquiz(){
+    timerEl.textContent = "Quiz Over"
+    questionContainer.style.display = "none"
+    options.style.display = "none"
 }
 
 //set score function  

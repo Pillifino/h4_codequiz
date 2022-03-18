@@ -21,7 +21,7 @@ var questions = [
 // index 3 = object question 4
     {
         questionText: "what is the answer to question 4?",
-        choices: ["wronganswer", "wrong answer", "right answer", "wrong answer","wrong answer"],
+        choices: ["wrong answer", "wrong answer", "right answer", "wrong answer","wrong answer"],
         answer: "right answer"
     },
 // index 4 = object question 5
@@ -40,7 +40,7 @@ var timerEl = document.querySelector("#timer"); //displays time
 var timerInterval; //stores setInterval API inside variable
 var score = document.querySelector("#score");
 var scoreCounter = 0;
-var highScore = 0; //local storage
+var highScore = document.querySelector("#highscore"); //local storage
 
 var options = document.querySelector(".options");
 var option1 = document.querySelector("#opt-1")
@@ -55,6 +55,7 @@ let index = 0;
 options.style.display = "none"; // hide buttons
 questionContainer.style.display = "none"; // Hide Questions
 score.style.display = "none"; //Hide Score
+
 //Functions
 // display quiz area
 function displayqa() {
@@ -68,14 +69,6 @@ function displayqa() {
     option5.textContent = questions[index].choices[4] //displays text of property of choices in object 4
 }
 
-startButton.addEventListener("click", function(){
-    startTimer();
-    displayqa();
-    options.style.display = "block";
-    questionContainer.style.display = "block"; // Reveal Questions
-    startButton.style.display = "none"; //Hides Start Button
-})
-
 
 //Start Timer
 function startTimer() {
@@ -83,7 +76,7 @@ function startTimer() {
     var secondsLeft = 15;
     timerInterval = setInterval(function() {
       secondsLeft--;
-      timerEl.textContent = secondsLeft + " seconds.";
+      timerEl.textContent = secondsLeft + " seconds";
       
       // Tests if time has run out
       if (secondsLeft === 0) {
@@ -132,13 +125,21 @@ function setscore() {
     score.style.display = "block"; //Reveal Score
 }
 
-// Event Listener
+// Event Listeners
 option1.addEventListener("click", checkanswer);
 option2.addEventListener("click", checkanswer);
 option3.addEventListener("click", checkanswer);
 option4.addEventListener("click", checkanswer);
 option5.addEventListener("click", checkanswer);
 
+//Start Button Event Listener
+startButton.addEventListener("click", function(){
+    startTimer();
+    displayqa();
+    options.style.display = "block";
+    questionContainer.style.display = "block"; // Reveal Questions
+    startButton.style.display = "none"; //Hides Start Button
+})
 
 // for loop through the questions
 for (let i = 0; i < questions[index].choices.length; i++) {

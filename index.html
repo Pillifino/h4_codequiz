@@ -8,21 +8,30 @@
     <link rel="stylesheet" href="./assets/code.css">
 </head>
 <body>
-    <section class="hidden" id="screen1">
-        <h1 class="mainscreen">Code Quiz</h1>
+    <section class="heading-container">
+        <h1 class="title">Code Quiz</h1>
         <h2 id="timer"></h2>
     </section>
-    <button class="start">Start Quiz</button>
+    <section class="start-container">
+        <button class="start">Start Quiz</button>
+    </section>
     <section class="quiz-area">
-        <h1 class="question-container">Static Question?</h1>
-        <div class="options">
-            <button id="opt-1">Example</button>
-            <button id="opt-2">Example</button>
-            <button id="opt-3">Example</button>
-            <button id="opt-4">Example</button>
-            <button id="opt-5">Example</button>
-        </div>
-        <div id="score">Score:</div>
+        <section class="main-question-container">
+            <h1 class="question-container">Static Question?</h1>
+        </section>
+        <section class="options-container">
+            <div class="options">
+                <button id="opt-1">Example</button>
+                <button id="opt-2">Example</button>
+                <button id="opt-3">Example</button>
+                <button id="opt-4">Example</button>
+                <button id="opt-5">Example</button>
+            </div>
+        </section>
+        <section class="score-container">
+            <div id="score">Score:</div>
+            <div id="highscore"></div>
+        </section>
     </section>
     <script src="./assets/script.js"></script>
 </body>

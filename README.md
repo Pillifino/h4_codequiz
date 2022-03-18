@@ -9,36 +9,6 @@
     - rough in the elements in HTML, style is less important
 */
 
-Project Outline
-Variables
-    Time variables (Activities 9 & 10)
-        var seconds left = 60 
-        var timeEL = document.queryselector("#countdown)
-
-    Score variables (Activity 11 & 12)
-        var score = 60 
-        var incrementEl = document.querySelector('#increment")
-        var losetimeEl (connect to countdown function) = document.querySelector('#decrement")
-        var countEl
-
-
-Functions
-    Tite Page
-    Start Button function
-        - When clicked, link to the first question and start timer
-
-    Time Function
-        -Use WebAPI: setInterval
-        -use if statment for when time gets to 0 that will stop timer and bring up final score
-        -create a function that displays the timeEL var using .textContent
-    Score Function
-        -create increment function with on click
-        -to print new score: countEl.textContent = score; 
-
-Questions 1-5 (Create Object with each property being a question with an array of answers)
-    Answer Buttons
-        -When Correct answer is clicked, add one point to score
-
 /*
  2. Identify events
     - Identify HTML elements that generate events, create variables at the top of 

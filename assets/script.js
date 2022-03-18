@@ -38,7 +38,7 @@ var questionContainer = document.querySelector(".question-container"); //Space F
 var testChoices = document.querySelector(".answer-container"); //Space for answer choices
 var timerEl = document.querySelector("#timer"); //displays time
 var timerInterval; //stores setInterval API inside variable
-var score = 0;
+var score = document.querySelector("#score");
 var scoreCounter = 0;
 var highScore = 0; //local storage
 
@@ -54,7 +54,7 @@ let index = 0;
 // Hidden Items
 options.style.display = "none"; // hide buttons
 questionContainer.style.display = "none"; // Hide Questions
-
+score.style.display = "none"; //Hide Score
 //Functions
 // display quiz area
 function displayqa() {
@@ -102,8 +102,8 @@ function checkanswer() {
     console.log("Button Clicked")
     console.log("Correct")
     if (submission === correctAnswer){
-        score += 1 //Add a point to score
-        console.log(score)
+        scoreCounter += 1 //Add a point to score
+        console.log(scoreCounter)
     }  else {
         
     }
@@ -123,31 +123,14 @@ function finishquiz(){
     timerEl.textContent = "Quiz Over"
     questionContainer.style.display = "none"
     options.style.display = "none"
+    setscore();
 }
 
-//set score function  
-
-  function setscore() {
-      score.textContent =  scoreCounter
-      localStorage.setItem("score", scoreCounter)
-
-      if(score > highScore){
-          localStorage.setItem("highScore", scoreCounter)
-      }
-  }
-
-
-//Bonuse Add Reset button
-// var resetButton = document.querySelector(".reset-button");
-
-// function resetGame() {
-//     //Resets win and loss counts
-//     score = 0; 
-//     highScore = 0;
-//     // Renders highscore and sets them into client storage
-//     setscore()
-//     setHighscore()
-// }
+//Set Score
+function setscore() {
+    score.textContent = "Score: " + scoreCounter
+    score.style.display = "block"; //Reveal Score
+}
 
 // Event Listener
 option1.addEventListener("click", checkanswer);

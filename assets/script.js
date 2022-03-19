@@ -80,7 +80,7 @@ function startTimer() {
       timerEl.textContent = secondsLeft + " seconds";
       
       // Tests if time has run out
-      if (secondsLeft === 0) {
+      if (secondsLeft <= 0) {
         // Clears interval
         clearInterval(timerInterval);
         finishquiz();
@@ -127,10 +127,12 @@ function setscore() {
     score.style.display = "block"; //Reveal Score
     //local storage for score
         var highScore = localStorage.getItem("highScore")
-    if(!highScore){
+    if(highScore != undefined){
         if (scoreCounter > highScore){
             localStorage.setItem("highScore", scoreCounter)
         }
+    }   else {
+            localStorage.setItem("highScore", scoreCounter)
     }
 }
 

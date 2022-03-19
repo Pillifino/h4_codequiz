@@ -117,12 +117,28 @@ function finishquiz(){
     questionContainer.style.display = "none"
     options.style.display = "none"
     setscore();
+    showHighscore();
 }
 
 //Set Score
 function setscore() {
     score.textContent = "Score: " + scoreCounter
     score.style.display = "block"; //Reveal Score
+    //local storage for score
+        var highScore = localStorage.getItem("highScore")
+    //set high score
+    if(!highScore){
+        if (scoreCounter > highScore){
+            localStorage.setItem("highScore", scoreCounter)
+        }
+    }
+}
+
+//display high score
+function showHighscore(){
+    highScore.textContent = "High Score: " + localStorage.getItem("highScore")
+    highScore.style.color = "white"
+    highScore.style.fontWeight = "bolder" 
 }
 
 // Event Listeners

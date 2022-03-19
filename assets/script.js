@@ -38,6 +38,7 @@ var questionContainer = document.querySelector(".question-container"); //Space F
 var testChoices = document.querySelector(".answer-container"); //Space for answer choices
 var timerEl = document.querySelector("#timer"); //displays time
 var timerInterval; //stores setInterval API inside variable
+var secondsLeft = 15
 var score = document.querySelector("#score");
 var scoreCounter = 0;
 var highScore = document.querySelector("#highscore"); //local storage
@@ -73,7 +74,7 @@ function displayqa() {
 //Start Timer
 function startTimer() {
     // Sets timer
-    var secondsLeft = 15;
+    // var secondsLeft = 15;
     timerInterval = setInterval(function() {
       secondsLeft--;
       timerEl.textContent = secondsLeft + " seconds";
@@ -98,7 +99,7 @@ function checkanswer() {
         scoreCounter += 1 //Add a point to score
         console.log(scoreCounter)
     }  else {
-        
+        secondsLeft -= 5
     }
 
     index = index + 1
@@ -126,7 +127,6 @@ function setscore() {
     score.style.display = "block"; //Reveal Score
     //local storage for score
         var highScore = localStorage.getItem("highScore")
-    //set high score
     if(!highScore){
         if (scoreCounter > highScore){
             localStorage.setItem("highScore", scoreCounter)
